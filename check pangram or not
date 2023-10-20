@@ -1,0 +1,25 @@
+public class PangramChecker {
+    public static boolean isPangram(String input) {
+        // Create a boolean array to mark the presence of letters in the alphabet
+        boolean[] alphabetPresence = new boolean[26];
+
+        // Convert the input to lowercase for case-insensitivity
+        input = input.toLowerCase();
+
+        // Iterate through the input string and mark each letter's presence
+        for (int i = 0; i < input.length(); i++) {
+            char c = input.charAt(i);
+            if (c >= 'a' && c <= 'z') {
+                alphabetPresence[c - 'a'] = true;
+            }
+        }
+
+        // Check if all letters in the alphabet are present
+        for (boolean isPresent : alphabetPresence) {
+            if (!isPresent) {
+                return false;
+            }
+        }
+
+        return true;
+    }
